@@ -17,10 +17,10 @@ export default function CTA() {
   const fadeUp = fadeUpVariants(Boolean(reduceMotion));
 
   return (
-    <Section className="py-24">
+    <Section className="bg-transparent">
       <motion.div
         className={cn(
-          "overflow-hidden px-8 py-16 text-center text-white md:px-16",
+          "overflow-hidden px-6 py-14 text-center text-white sm:px-8 md:px-16 md:py-16",
           radii.card,
           gradients.brandSurface,
           shadows.floating,
@@ -32,13 +32,15 @@ export default function CTA() {
         whileHover={reduceMotion ? undefined : { scale: 1.01 }}
         transition={{ duration: 0.24, ease: "easeOut" }}
       >
-
-        <motion.h2 className="text-4xl font-bold md:text-5xl" variants={fadeUp}>
+        <motion.h2
+          className="text-4xl font-semibold tracking-tight md:text-5xl"
+          variants={fadeUp}
+        >
           Ready for Your Next Adventure?
         </motion.h2>
 
         <motion.p
-          className="mx-auto mt-6 max-w-2xl text-lg text-emerald-50"
+          className="mx-auto mt-5 max-w-2xl text-base leading-7 text-emerald-50 sm:text-lg"
           variants={fadeUp}
         >
           Let AI plan your journey while you focus on making unforgettable memories.
@@ -52,7 +54,7 @@ export default function CTA() {
           <Button
             asChild
             size="lg"
-            className="bg-white text-teal-700 hover:bg-teal-700 hover:text-white"
+            className="h-12 rounded-full bg-white px-6 font-semibold text-teal-700 shadow-lg shadow-emerald-950/20 transition-all duration-300 motion-safe:hover:-translate-y-0.5 hover:bg-emerald-50 hover:text-emerald-800"
           >
             <Link href="/signup">
               Start Planning
@@ -63,14 +65,13 @@ export default function CTA() {
             asChild
             variant="outline"
             size="lg"
-            className="bg-teal-700 text-white hover:bg-white hover:text-teal-700"
+            className="h-12 rounded-full border-white/30 bg-white/10 px-6 font-semibold text-white backdrop-blur transition-all duration-300 motion-safe:hover:-translate-y-0.5 hover:bg-white hover:text-teal-700"
           >
             <Link href="/about">
               Learn More
             </Link>
           </Button>
         </motion.div>
-
       </motion.div>
     </Section>
   );

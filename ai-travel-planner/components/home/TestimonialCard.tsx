@@ -7,6 +7,7 @@ import {
   Card,
   CardContent,
 } from "@/components/ui/card";
+import { radii, shadows } from "@/constants/design";
 import { fadeUpVariants } from "@/constants/motion";
 import { cn } from "@/lib/utils";
 
@@ -39,7 +40,14 @@ export default function TestimonialCard({
       whileHover={reduceMotion ? undefined : { scale: 1.025 }}
       transition={{ duration: 0.24, ease: "easeOut" }}
     >
-      <Card className="group h-full overflow-hidden rounded-3xl border-white/70 bg-white/80 p-0 shadow-xl shadow-slate-950/5 backdrop-blur-xl transition-colors duration-300 hover:border-emerald-200/80 hover:shadow-2xl hover:shadow-emerald-950/10 dark:border-white/10 dark:bg-zinc-950/65 dark:shadow-black/20 dark:hover:border-emerald-800/60">
+      <Card
+        className={cn(
+          "group h-full overflow-hidden border-white/70 bg-white/80 p-0 backdrop-blur-xl transition-colors duration-300 hover:border-emerald-200/80 dark:border-white/10 dark:bg-zinc-950/65 dark:hover:border-emerald-800/60",
+          radii.card,
+          shadows.card,
+          shadows.cardHover,
+        )}
+      >
         <CardContent className="relative flex h-full flex-col p-6">
         <div
           aria-hidden="true"
@@ -71,7 +79,7 @@ export default function TestimonialCard({
         </div>
 
         <blockquote className="relative flex-1">
-          <p className="text-lg font-medium leading-8 text-slate-800 dark:text-slate-100">
+          <p className="text-base font-medium leading-8 text-slate-800 dark:text-slate-100 sm:text-lg">
             &quot;{review}&quot;
           </p>
         </blockquote>

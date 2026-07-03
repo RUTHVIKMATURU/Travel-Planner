@@ -6,7 +6,7 @@ import ScrollReveal from "@/components/common/ScrollReveal";
 
 export default function HowItWorks() {
   return (
-    <Section id="how-it-works" className="bg-slate-50 py-24 dark:bg-zinc-950">
+    <Section id="how-it-works" className="bg-transparent">
       <ScrollReveal>
         <SectionHeader
           title="How It Works"
@@ -14,7 +14,7 @@ export default function HowItWorks() {
         />
       </ScrollReveal>
 
-      <ScrollReveal className="grid gap-8 md:grid-cols-3" delay={0.08}>
+      <ScrollReveal className="grid gap-6 md:grid-cols-3" delay={0.08}>
         {HOW_IT_WORKS.map((step) => (
           <StepCard
             key={step.step}

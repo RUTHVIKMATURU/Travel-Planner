@@ -55,9 +55,9 @@ export default function HeroContent() {
     >
       <motion.div variants={fadeUp}>
         <Badge className="mb-7 rounded-full border border-emerald-200/80 bg-white/75 px-4 py-2 text-sm font-semibold text-emerald-700 shadow-sm shadow-emerald-900/5 backdrop-blur hover:bg-white dark:border-emerald-800/60 dark:bg-emerald-950/40 dark:text-emerald-300 dark:hover:bg-emerald-950/50">
-        <Sparkles className="mr-2 h-4 w-4" />
-        AI-powered itinerary planning
-      </Badge>
+          <Sparkles className="mr-2 h-4 w-4" />
+          AI-powered itinerary planning
+        </Badge>
       </motion.div>
 
       <motion.h1
@@ -98,7 +98,7 @@ export default function HeroContent() {
           asChild
           variant="outline"
           size="lg"
-          className="h-12 rounded-full border-slate-200 bg-white/70 px-6 text-base font-semibold text-slate-800 shadow-sm backdrop-blur transition-all duration-300 motion-safe:hover:-translate-y-0.5 hover:border-emerald-200 hover:bg-emerald-50 hover:text-emerald-700 dark:border-zinc-800 dark:bg-zinc-950/50 dark:text-slate-100 dark:hover:bg-emerald-950/30 dark:hover:text-emerald-300"
+          className="h-12 rounded-full border-slate-200 bg-white/80 px-6 text-base font-semibold text-slate-800 shadow-sm backdrop-blur transition-all duration-300 motion-safe:hover:-translate-y-0.5 hover:border-emerald-200 hover:bg-white hover:text-emerald-700 dark:border-zinc-800 dark:bg-zinc-950/60 dark:text-slate-100 dark:hover:bg-zinc-900 dark:hover:text-emerald-300"
         >
           <Link href="#features">
             <Play className="mr-2 h-4 w-4 fill-current" />
@@ -177,14 +177,14 @@ export default function HeroContent() {
 
       <motion.div variants={fadeUp}>
         <Link
-        href="#features"
-        className="mt-12 inline-flex items-center gap-3 text-sm font-semibold text-slate-500 transition-colors hover:text-emerald-700 dark:text-slate-400 dark:hover:text-emerald-300"
-      >
-        <span className="flex h-10 w-6 items-start justify-center rounded-full border border-slate-300 p-1 dark:border-zinc-700">
-          <ArrowDown className="mt-0.5 h-3.5 w-3.5 motion-safe:animate-bounce" />
-        </span>
-        Scroll to explore
-      </Link>
+          href="#features"
+          className="mt-12 inline-flex items-center gap-3 text-sm font-semibold text-slate-500 transition-colors hover:text-emerald-700 dark:text-slate-400 dark:hover:text-emerald-300"
+        >
+          <span className="flex h-10 w-6 items-start justify-center rounded-full border border-slate-300 p-1 dark:border-zinc-700">
+            <ArrowDown className="mt-0.5 h-3.5 w-3.5 motion-safe:animate-bounce" />
+          </span>
+          Scroll to explore
+        </Link>
       </motion.div>
     </motion.div>
   );

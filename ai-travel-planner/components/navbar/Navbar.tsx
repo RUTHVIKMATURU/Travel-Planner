@@ -17,7 +17,7 @@ export default function Navbar() {
           "mx-auto flex h-20 max-w-7xl items-center justify-between border border-white/60 bg-white/75 px-4 backdrop-blur-2xl transition-all duration-300 dark:border-white/10 dark:bg-zinc-950/70 sm:px-6 lg:px-7",
           "supports-[backdrop-filter]:bg-white/65 supports-[backdrop-filter]:dark:bg-zinc-950/60",
           "ring-1 ring-slate-950/5 dark:ring-white/10",
-          radii.card,
+          radii.panel,
           shadows.nav,
         )}
       >
@@ -28,7 +28,7 @@ export default function Navbar() {
         >
           <div
             className={cn(
-              "flex h-11 w-11 items-center justify-center bg-gradient-to-br from-emerald-600 to-teal-500 text-white shadow-lg shadow-emerald-900/15 transition-all duration-300 group-hover:scale-105 group-hover:shadow-emerald-700/25",
+              "flex h-11 w-11 items-center justify-center bg-gradient-to-br from-emerald-600 to-teal-500 text-white shadow-lg shadow-emerald-900/15 transition-all duration-300 motion-safe:group-hover:scale-105 group-hover:shadow-emerald-700/25",
               radii.panel,
             )}
           >
@@ -61,7 +61,7 @@ export default function Navbar() {
 
           <Button
             className={cn(
-              "rounded-full px-6 font-semibold text-white shadow-emerald-900/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-emerald-900/25",
+              "rounded-full px-6 font-semibold text-white shadow-emerald-900/20 transition-all duration-300 motion-safe:hover:-translate-y-0.5 hover:shadow-xl hover:shadow-emerald-900/25",
               gradients.primaryAction,
             )}
           >

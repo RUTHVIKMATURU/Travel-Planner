@@ -1,7 +1,6 @@
 "use client";
 
-import { LucideIcon } from "lucide-react";
-import { ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, type LucideIcon } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import {
   Card,
@@ -9,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { radii, shadows } from "@/constants/design";
 import { fadeUpVariants } from "@/constants/motion";
 import { cn } from "@/lib/utils";
 
@@ -30,14 +30,22 @@ export default function FeatureCard({
   return (
     <motion.li
       className={cn(
-        "group h-full rounded-3xl focus-within:outline-none focus-within:ring-2 focus-within:ring-emerald-500/40",
+        "group h-full focus-within:outline-none focus-within:ring-2 focus-within:ring-emerald-500/40",
+        radii.card,
         index % 2 === 0 ? "lg:translate-y-0" : "lg:translate-y-6",
       )}
       variants={fadeUpVariants(Boolean(reduceMotion))}
       whileHover={reduceMotion ? undefined : { scale: 1.025 }}
       transition={{ duration: 0.24, ease: "easeOut" }}
     >
-      <Card className="relative h-full overflow-hidden rounded-3xl border-white/70 bg-white/75 p-0 shadow-xl shadow-slate-950/5 backdrop-blur-xl transition-colors duration-300 hover:border-emerald-200/80 hover:shadow-2xl hover:shadow-emerald-950/10 dark:border-white/10 dark:bg-zinc-950/60 dark:shadow-black/20 dark:hover:border-emerald-800/50">
+      <Card
+        className={cn(
+          "relative h-full overflow-hidden border-white/70 bg-white/80 p-0 backdrop-blur-xl transition-colors duration-300 hover:border-emerald-200/80 dark:border-white/10 dark:bg-zinc-950/65 dark:hover:border-emerald-800/50",
+          radii.card,
+          shadows.card,
+          shadows.cardHover,
+        )}
+      >
         <div
           aria-hidden="true"
           className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-emerald-600 via-teal-500 to-emerald-400 opacity-80"
@@ -76,6 +84,5 @@ export default function FeatureCard({
         </CardContent>
       </Card>
     </motion.li>
-
   );
 }

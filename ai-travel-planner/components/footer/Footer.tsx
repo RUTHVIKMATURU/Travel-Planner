@@ -90,7 +90,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-slate-200/80 bg-white py-16 dark:border-zinc-800 dark:bg-zinc-950">
+    <footer className="border-t border-slate-200/80 bg-white/70 py-16 backdrop-blur-sm dark:border-zinc-800 dark:bg-zinc-950/80">
       <Container>
         <div className="grid gap-12 lg:grid-cols-[1.2fr_2fr]">
           <div className="max-w-sm">
@@ -99,7 +99,7 @@ export default function Footer() {
               className="group inline-flex items-center gap-3"
               aria-label="Travix home"
             >
-              <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-500 text-white shadow-lg shadow-emerald-900/15 transition-transform duration-300 group-hover:scale-105">
+              <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-500 text-white shadow-lg shadow-emerald-900/15 transition-transform duration-300 motion-safe:group-hover:scale-105">
                 <Compass className="h-5 w-5" />
               </span>
 
@@ -157,7 +157,7 @@ export default function Footer() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={social.label}
-                      className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-500 transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-200 hover:text-emerald-700 dark:border-zinc-800 dark:text-slate-400 dark:hover:border-emerald-800 dark:hover:text-emerald-300"
+                      className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-500 transition-all duration-300 motion-safe:hover:-translate-y-0.5 hover:border-emerald-200 hover:text-emerald-700 dark:border-zinc-800 dark:text-slate-400 dark:hover:border-emerald-800 dark:hover:text-emerald-300"
                     >
                       <Icon className="h-4 w-4" />
                     </a>

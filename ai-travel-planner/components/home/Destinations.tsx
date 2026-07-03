@@ -18,7 +18,7 @@ export default function Destinations() {
   return (
     <Section
       id="destinations"
-      className="py-24"
+      className="bg-transparent"
     >
       <motion.div
         initial="hidden"

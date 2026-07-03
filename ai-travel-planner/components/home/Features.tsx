@@ -22,7 +22,7 @@ export default function Features() {
     <Section
       id="features"
       aria-labelledby="features-heading"
-      className="relative overflow-hidden bg-transparent py-24"
+      className="relative overflow-hidden bg-transparent"
     >
       <div
         aria-hidden="true"
@@ -30,7 +30,7 @@ export default function Features() {
       />
 
       <motion.div
-        className="mb-16 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end"
+        className="mb-14 grid gap-8 sm:mb-16 lg:grid-cols-[0.9fr_1.1fr] lg:items-end"
         initial="hidden"
         whileInView="visible"
         viewport={revealViewport}

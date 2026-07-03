@@ -16,7 +16,7 @@ export default function Section({
   ...props
 }: SectionProps) {
   return (
-    <section className={cn(spacing.section, className)} {...props}>
+    <section className={cn("relative", spacing.section, className)} {...props}>
       {contained ? <Container>{children}</Container> : children}
     </section>
   );

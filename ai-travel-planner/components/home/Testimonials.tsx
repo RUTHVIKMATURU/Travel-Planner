@@ -18,7 +18,7 @@ export default function Testimonials() {
   return (
     <Section
       aria-labelledby="testimonials-heading"
-      className="relative overflow-hidden py-24"
+      className="relative overflow-hidden bg-transparent"
     >
       <div
         aria-hidden="true"

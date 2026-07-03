@@ -34,6 +34,7 @@ export default function SectionHeader({
         spacing.sectionHeader,
         maxWidthClasses[maxWidth],
         align === "center" && "mx-auto text-center",
+        align === "left" && "text-left",
         className,
       )}
     >

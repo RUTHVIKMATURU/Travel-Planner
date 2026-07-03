@@ -1,8 +1,8 @@
 export const spacing = {
-  container: "mx-auto max-w-7xl px-6",
-  section: "py-24",
-  heroSection: "py-20 lg:py-28",
-  sectionHeader: "mb-16",
+  container: "mx-auto max-w-7xl px-5 sm:px-6 lg:px-8",
+  section: "py-24 sm:py-28",
+  heroSection: "pb-24 pt-16 sm:pb-28 sm:pt-20 lg:pb-32 lg:pt-24",
+  sectionHeader: "mb-12 sm:mb-16",
   card: "p-8",
   cardCompact: "p-6",
   stackSm: "space-y-3",
@@ -11,9 +11,11 @@ export const spacing = {
 } as const;
 
 export const typography = {
-  sectionTitle: "text-4xl font-bold",
-  sectionDescription: "mt-4 text-lg text-slate-600 dark:text-slate-400",
-  cardTitle: "text-xl font-semibold",
+  sectionTitle:
+    "text-4xl font-semibold tracking-tight text-slate-950 dark:text-white sm:text-5xl",
+  sectionDescription:
+    "mt-4 text-base leading-7 text-slate-600 dark:text-slate-400 sm:text-lg sm:leading-8",
+  cardTitle: "text-xl font-semibold tracking-tight",
   bodyMuted: "text-slate-600 dark:text-slate-400",
   captionMuted: "text-sm text-slate-500 dark:text-slate-400",
 } as const;
@@ -28,17 +30,17 @@ export const gradients = {
 } as const;
 
 export const shadows = {
-  card: "shadow-sm",
-  cardHover: "hover:shadow-xl",
-  cardHoverSoft: "hover:shadow-lg",
-  floating: "shadow-xl",
-  elevated: "shadow-2xl",
-  nav: "shadow-lg",
+  card: "shadow-lg shadow-slate-950/5 dark:shadow-black/20",
+  cardHover: "hover:shadow-xl hover:shadow-emerald-950/10",
+  cardHoverSoft: "hover:shadow-xl hover:shadow-slate-950/10",
+  floating: "shadow-2xl shadow-emerald-950/20",
+  elevated: "shadow-2xl shadow-slate-950/10 dark:shadow-black/30",
+  nav: "shadow-lg shadow-slate-950/5 dark:shadow-black/20",
 } as const;
 
 export const radii = {
   badge: "rounded-full",
   control: "rounded-xl",
   panel: "rounded-2xl",
-  card: "rounded-3xl",
+  card: "rounded-2xl",
 } as const;
