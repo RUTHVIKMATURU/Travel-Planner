@@ -1,6 +1,7 @@
 import { FAQS } from "@/constants/faqs";
 import Section from "@/components/layout/Section";
 import SectionHeader from "@/components/layout/SectionHeader";
+import ScrollReveal from "@/components/common/ScrollReveal";
 
 import {
   Accordion,
@@ -12,12 +13,14 @@ import {
 export default function FAQ() {
   return (
     <Section className="bg-slate-50 py-24 dark:bg-zinc-950">
-      <SectionHeader
-        title="Frequently Asked Questions"
-        description="Everything you need to know about planning your trip with Voya."
-      />
+      <ScrollReveal>
+        <SectionHeader
+          title="Frequently Asked Questions"
+          description="Everything you need to know about planning your trip with Travix."
+        />
+      </ScrollReveal>
 
-      <div className="mx-auto max-w-3xl">
+      <ScrollReveal className="mx-auto max-w-3xl" delay={0.08}>
         <Accordion type="single" collapsible>
           {FAQS.map((faq, index) => (
             <AccordionItem
@@ -34,7 +37,7 @@ export default function FAQ() {
             </AccordionItem>
           ))}
         </Accordion>
-      </div>
+      </ScrollReveal>
     </Section>
   );
 }

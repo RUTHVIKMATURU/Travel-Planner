@@ -9,7 +9,7 @@ export function fadeUpVariants(reduceMotion: boolean): Variants {
   }
 
   return {
-    hidden: { opacity: 0, y: 28 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
