@@ -10,11 +10,12 @@ export default function Destinations() {
       className="py-24"
     >
       <SectionHeader
+        maxWidth="3xl"
         title="Popular Destinations"
-        description="Discover AI-recommended places around the world."
+        description="Discover AI-recommended places with budget insight, ideal timing, and trip length at a glance."
       />
 
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid items-stretch gap-6 md:grid-cols-2 lg:grid-cols-3">
         {DESTINATIONS.map((destination) => (
           <DestinationCard
             key={destination.name}

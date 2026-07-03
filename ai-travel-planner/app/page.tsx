@@ -14,6 +14,8 @@ export default function Home() {
       <div aria-hidden="true" className="landing-page-orb landing-page-orb-emerald" />
       <div aria-hidden="true" className="landing-page-orb landing-page-orb-teal" />
       <div aria-hidden="true" className="landing-page-orb landing-page-orb-amber" />
+
+      <Navbar />
       <main>
         <Hero />
         <Features />
