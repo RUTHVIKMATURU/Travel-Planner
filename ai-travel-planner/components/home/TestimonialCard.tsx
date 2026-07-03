@@ -1,9 +1,13 @@
+"use client";
+
 import Image from "next/image";
+import { motion, useReducedMotion } from "framer-motion";
 import { Quote, Star } from "lucide-react";
 import {
   Card,
   CardContent,
 } from "@/components/ui/card";
+import { fadeUpVariants } from "@/constants/motion";
 import { cn } from "@/lib/utils";
 
 type Props = {
@@ -23,14 +27,20 @@ export default function TestimonialCard({
   rating,
   featured = false,
 }: Props) {
+  const reduceMotion = useReducedMotion();
+
   return (
-    <Card
+    <motion.div
       className={cn(
-        "group h-full overflow-hidden rounded-3xl border-white/70 bg-white/80 p-0 shadow-xl shadow-slate-950/5 backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:border-emerald-200/80 hover:shadow-2xl hover:shadow-emerald-950/10 dark:border-white/10 dark:bg-zinc-950/65 dark:shadow-black/20 dark:hover:border-emerald-800/60",
-        featured && "md:-translate-y-4 md:hover:-translate-y-6",
+        "h-full",
+        featured && "md:-translate-y-4",
       )}
+      variants={fadeUpVariants(Boolean(reduceMotion))}
+      whileHover={reduceMotion ? undefined : { scale: 1.025 }}
+      transition={{ duration: 0.24, ease: "easeOut" }}
     >
-      <CardContent className="relative flex h-full flex-col p-6">
+      <Card className="group h-full overflow-hidden rounded-3xl border-white/70 bg-white/80 p-0 shadow-xl shadow-slate-950/5 backdrop-blur-xl transition-colors duration-300 hover:border-emerald-200/80 hover:shadow-2xl hover:shadow-emerald-950/10 dark:border-white/10 dark:bg-zinc-950/65 dark:shadow-black/20 dark:hover:border-emerald-800/60">
+        <CardContent className="relative flex h-full flex-col p-6">
         <div
           aria-hidden="true"
           className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-emerald-300/20 blur-3xl transition-opacity duration-300 group-hover:opacity-80 dark:bg-emerald-500/10"
@@ -87,7 +97,8 @@ export default function TestimonialCard({
             </p>
           </div>
         </div>
-      </CardContent>
-    </Card>
+        </CardContent>
+      </Card>
+    </motion.div>
   );
 }

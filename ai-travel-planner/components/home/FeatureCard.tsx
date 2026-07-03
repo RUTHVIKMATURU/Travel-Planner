@@ -1,11 +1,15 @@
+"use client";
+
 import { LucideIcon } from "lucide-react";
 import { ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
 import {
   Card,
   CardContent,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { fadeUpVariants } from "@/constants/motion";
 import { cn } from "@/lib/utils";
 
 type Props = {
@@ -21,14 +25,19 @@ export default function FeatureCard({
   icon: Icon,
   index,
 }: Props) {
+  const reduceMotion = useReducedMotion();
+
   return (
-    <li
+    <motion.li
       className={cn(
         "group h-full rounded-3xl focus-within:outline-none focus-within:ring-2 focus-within:ring-emerald-500/40",
         index % 2 === 0 ? "lg:translate-y-0" : "lg:translate-y-6",
       )}
+      variants={fadeUpVariants(Boolean(reduceMotion))}
+      whileHover={reduceMotion ? undefined : { scale: 1.025 }}
+      transition={{ duration: 0.24, ease: "easeOut" }}
     >
-      <Card className="relative h-full overflow-hidden rounded-3xl border-white/70 bg-white/75 p-0 shadow-xl shadow-slate-950/5 backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:border-emerald-200/80 hover:shadow-2xl hover:shadow-emerald-950/10 dark:border-white/10 dark:bg-zinc-950/60 dark:shadow-black/20 dark:hover:border-emerald-800/50">
+      <Card className="relative h-full overflow-hidden rounded-3xl border-white/70 bg-white/75 p-0 shadow-xl shadow-slate-950/5 backdrop-blur-xl transition-colors duration-300 hover:border-emerald-200/80 hover:shadow-2xl hover:shadow-emerald-950/10 dark:border-white/10 dark:bg-zinc-950/60 dark:shadow-black/20 dark:hover:border-emerald-800/50">
         <div
           aria-hidden="true"
           className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-emerald-600 via-teal-500 to-emerald-400 opacity-80"
@@ -39,7 +48,7 @@ export default function FeatureCard({
         />
         <CardHeader className="relative gap-5 p-6 pb-3">
           <div className="flex items-start justify-between gap-4">
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-500 text-white shadow-lg shadow-emerald-900/20 transition-transform duration-300 group-hover:scale-105">
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-500 text-white shadow-lg shadow-emerald-900/20 transition-transform duration-300 motion-safe:group-hover:scale-105">
               <Icon aria-hidden="true" className="h-7 w-7" />
             </div>
 
@@ -66,7 +75,7 @@ export default function FeatureCard({
           </div>
         </CardContent>
       </Card>
-    </li>
+    </motion.li>
 
   );
 }

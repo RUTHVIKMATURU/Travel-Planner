@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { motion, useReducedMotion } from "framer-motion";
 import {
   CalendarDays,
   CloudSun,
@@ -11,6 +14,7 @@ import {
   Card,
   CardContent,
 } from "@/components/ui/card";
+import { fadeUpVariants } from "@/constants/motion";
 
 type Props = {
   name: string;
@@ -48,23 +52,30 @@ export default function DestinationCard({
   rating,
   price,
 }: Props) {
+  const reduceMotion = useReducedMotion();
   const meta = destinationMeta[name] ?? {
     duration: "5-7 days",
     season: "Year-round",
   };
 
   return (
-    <Card
-      className="group h-full overflow-hidden rounded-3xl border-white/70 bg-white/80 p-0 shadow-xl shadow-slate-950/5 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-emerald-200/80 hover:shadow-2xl hover:shadow-emerald-950/10 dark:border-white/10 dark:bg-zinc-950/65 dark:shadow-black/20 dark:hover:border-emerald-800/60"
+    <motion.div
+      className="h-full"
+      variants={fadeUpVariants(Boolean(reduceMotion))}
+      whileHover={reduceMotion ? undefined : { scale: 1.025 }}
+      transition={{ duration: 0.24, ease: "easeOut" }}
     >
-      <article aria-label={`${name}, ${country}`} className="flex h-full flex-col">
+      <Card
+        className="group h-full overflow-hidden rounded-3xl border-white/70 bg-white/80 p-0 shadow-xl shadow-slate-950/5 backdrop-blur-xl transition-colors duration-500 hover:border-emerald-200/80 hover:shadow-2xl hover:shadow-emerald-950/10 dark:border-white/10 dark:bg-zinc-950/65 dark:shadow-black/20 dark:hover:border-emerald-800/60"
+      >
+        <article aria-label={`${name}, ${country}`} className="flex h-full flex-col">
         <div className="relative h-72 overflow-hidden">
           <Image
             src={image}
             alt={`${name}, ${country}`}
             fill
             sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
+            className="object-cover transition-transform duration-700 motion-safe:group-hover:scale-105"
           />
 
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/10 to-transparent" />
@@ -149,7 +160,8 @@ export default function DestinationCard({
             </span>
           </div>
         </CardContent>
-      </article>
-    </Card>
+        </article>
+      </Card>
+    </motion.div>
   );
 }
