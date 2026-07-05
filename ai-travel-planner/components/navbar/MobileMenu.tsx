@@ -73,21 +73,27 @@ export default function MobileMenu() {
         <SheetFooter className="gap-3 border-t border-slate-200/70 p-6 dark:border-zinc-800/80">
           <ThemeToggle />
 
-          <Button
-            variant="outline"
-            className="rounded-full border-slate-200 bg-white/70 font-semibold text-slate-700 transition-all hover:border-emerald-200 hover:bg-emerald-50 hover:text-emerald-700 dark:border-zinc-800 dark:bg-zinc-900/70 dark:text-slate-200 dark:hover:bg-emerald-950/40"
-          >
-            Login
-          </Button>
+          <SheetClose asChild>
+            <Button
+              asChild
+              variant="outline"
+              className="rounded-full border-slate-200 bg-white/70 font-semibold text-slate-700 transition-all hover:border-emerald-200 hover:bg-emerald-50 hover:text-emerald-700 dark:border-zinc-800 dark:bg-zinc-900/70 dark:text-slate-200 dark:hover:bg-emerald-950/40"
+            >
+              <Link href="/login">Login</Link>
+            </Button>
+          </SheetClose>
 
-          <Button
-            className={cn(
-              "rounded-full font-semibold text-white shadow-lg shadow-emerald-900/20 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-emerald-900/25",
-              gradients.primaryAction,
-            )}
-          >
-            Get Started
-          </Button>
+          <SheetClose asChild>
+            <Button
+              asChild
+              className={cn(
+                "rounded-full font-semibold text-white shadow-lg shadow-emerald-900/20 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-emerald-900/25",
+                gradients.primaryAction,
+              )}
+            >
+              <Link href="/signup">Get Started</Link>
+            </Button>
+          </SheetClose>
         </SheetFooter>
       </SheetContent>
     </Sheet>

@@ -53,19 +53,21 @@ export default function Navbar() {
           <ThemeToggle />
 
           <Button
+            asChild
             variant="ghost"
             className="rounded-full px-5 font-semibold text-slate-700 transition-all hover:bg-emerald-50 hover:text-emerald-700 dark:text-slate-200 dark:hover:bg-emerald-950/40 dark:hover:text-emerald-300"
           >
-            Login
+            <Link href="/login">Login</Link>
           </Button>
 
           <Button
+            asChild
             className={cn(
               "rounded-full px-6 font-semibold text-white shadow-emerald-900/20 transition-all duration-300 motion-safe:hover:-translate-y-0.5 hover:shadow-xl hover:shadow-emerald-900/25",
               gradients.primaryAction,
             )}
           >
-            Get Started
+            <Link href="/signup">Get Started</Link>
           </Button>
         </div>
 
