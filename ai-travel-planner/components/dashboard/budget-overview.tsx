@@ -20,11 +20,11 @@ export function BudgetOverview() {
         <div className="flex justify-between items-end">
           <div>
             <p className="text-sm text-muted-foreground mb-1">Spent so far</p>
-            <h3 className="text-3xl font-bold tracking-tight">${spent.toLocaleString()}</h3>
+            <h3 className="text-3xl font-bold tracking-tight">${spent.toLocaleString("en-US")}</h3>
           </div>
           <div className="text-right">
             <p className="text-sm text-muted-foreground mb-1">Total Budget</p>
-            <p className="font-medium">${budget.toLocaleString()}</p>
+            <p className="font-medium">${budget.toLocaleString("en-US")}</p>
           </div>
         </div>
 
@@ -34,7 +34,7 @@ export function BudgetOverview() {
               {percentage.toFixed(0)}% Used
             </span>
             <span className="text-muted-foreground">
-              ${(budget - spent).toLocaleString()} remaining
+              ${(budget - spent).toLocaleString("en-US")} remaining
             </span>
           </div>
           <div className="h-3 w-full bg-secondary rounded-full overflow-hidden">
