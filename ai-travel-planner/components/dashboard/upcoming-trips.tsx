@@ -1,46 +1,69 @@
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { CalendarDays, MapPin } from "lucide-react";
+import { MapPin, Calendar, Clock } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+const upcomingTrips = [
+  {
+    id: 1,
+    destination: "Kyoto, Japan",
+    date: "Oct 12 - Oct 20, 2026",
+    daysLeft: 12,
+    gradient: "from-pink-500/80 to-rose-500/80",
+    imagePlaceholder: "bg-pink-100 dark:bg-pink-900/30",
+  },
+  {
+    id: 2,
+    destination: "Swiss Alps",
+    date: "Dec 05 - Dec 15, 2026",
+    daysLeft: 45,
+    gradient: "from-blue-500/80 to-cyan-500/80",
+    imagePlaceholder: "bg-blue-100 dark:bg-blue-900/30",
+  }
+];
 
 export function UpcomingTrips() {
   return (
-    <Card className="flex flex-col h-full">
-      <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <MapPin className="w-5 h-5 text-muted-foreground" />
-          Upcoming Trips
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="flex-1 flex flex-col gap-4">
-        {/* Mock Trip 1 */}
-        <div className="flex flex-col sm:flex-row gap-4 p-4 rounded-lg border bg-card hover:bg-accent/50 transition-colors">
-          <div className="w-full sm:w-24 h-24 rounded-md overflow-hidden bg-muted flex-shrink-0 relative">
-            <img 
-              src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=2073&auto=format&fit=crop" 
-              alt="Paris" 
-              className="object-cover w-full h-full"
-            />
-          </div>
-          <div className="flex-1 flex flex-col justify-between">
-            <div>
-              <div className="flex justify-between items-start">
-                <h4 className="font-semibold text-lg">Paris Getaway</h4>
-                <Badge variant="default" className="bg-primary/20 text-primary hover:bg-primary/30">In 12 days</Badge>
-              </div>
-              <p className="text-sm text-muted-foreground flex items-center gap-1 mt-1">
-                <CalendarDays className="w-3.5 h-3.5" /> Oct 15 - Oct 22, 2026
-              </p>
+    <div className="h-full rounded-3xl bg-white/40 dark:bg-zinc-900/40 backdrop-blur-xl border border-white/40 dark:border-zinc-800/50 shadow-xl shadow-black/5 p-6 flex flex-col">
+      <div className="flex items-center justify-between mb-6">
+        <h3 className="text-xl font-bold text-slate-900 dark:text-white">Upcoming Trips</h3>
+        <Button variant="ghost" className="text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300">
+          View all
+        </Button>
+      </div>
+
+      <div className="flex flex-col gap-4 flex-1">
+        {upcomingTrips.map((trip) => (
+          <div 
+            key={trip.id} 
+            className="group relative flex flex-col sm:flex-row gap-4 p-4 rounded-2xl bg-white/50 dark:bg-zinc-950/50 border border-white/40 dark:border-zinc-800/50 hover:shadow-lg transition-all duration-300 hover:scale-[1.01]"
+          >
+            {/* Image Placeholder */}
+            <div className={`w-full sm:w-32 h-32 sm:h-auto shrink-0 rounded-xl bg-gradient-to-br ${trip.gradient} flex items-center justify-center overflow-hidden relative`}>
+              <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
+              <MapPin className="text-white h-8 w-8 opacity-80" />
             </div>
-            <div className="mt-3 flex items-center gap-2">
-              <div className="flex -space-x-2">
-                <div className="w-7 h-7 rounded-full border-2 border-background bg-muted flex items-center justify-center text-xs font-medium">JD</div>
-                <div className="w-7 h-7 rounded-full border-2 border-background bg-muted flex items-center justify-center text-xs font-medium">+2</div>
+
+            <div className="flex flex-col justify-center flex-1 py-1">
+              <div className="flex justify-between items-start mb-1">
+                <h4 className="text-lg font-bold text-slate-900 dark:text-white">{trip.destination}</h4>
+                <span className="inline-flex items-center rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-semibold text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300">
+                  In {trip.daysLeft} days
+                </span>
               </div>
-              <span className="text-xs text-muted-foreground">3 collaborators</span>
+              
+              <div className="flex items-center text-sm text-slate-500 dark:text-slate-400 mt-2 gap-4">
+                <div className="flex items-center gap-1.5">
+                  <Calendar className="h-4 w-4" />
+                  {trip.date}
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <Clock className="h-4 w-4" />
+                  Planned
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </CardContent>
-    </Card>
+        ))}
+      </div>
+    </div>
   );
 }

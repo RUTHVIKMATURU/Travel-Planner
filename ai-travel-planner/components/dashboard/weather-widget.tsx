@@ -1,52 +1,49 @@
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { CloudRain, Sun, Cloud, Thermometer, Wind, Droplets } from "lucide-react";
+import { Cloud, Sun, Wind, Droplets } from "lucide-react";
 
 export function WeatherWidget() {
   return (
-    <Card className="flex flex-col h-full bg-gradient-to-br from-blue-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 border-none shadow-sm">
-      <CardHeader className="pb-2">
-        <CardTitle className="text-lg flex justify-between items-center">
-          Paris
-          <CloudRain className="w-6 h-6 text-blue-500" />
-        </CardTitle>
-        <CardDescription>Current Weather</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <div className="flex items-center justify-between mb-6">
+    <div className="h-full rounded-3xl bg-white/40 dark:bg-zinc-900/40 backdrop-blur-xl border border-white/40 dark:border-zinc-800/50 shadow-xl shadow-black/5 p-6 relative overflow-hidden flex flex-col justify-between">
+      {/* Decorative sun flare */}
+      <div className="absolute -top-10 -right-10 h-32 w-32 bg-amber-300/40 blur-3xl rounded-full pointer-events-none" />
+
+      <div>
+        <div className="flex items-center justify-between mb-4 relative z-10">
+          <h3 className="text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+            Destination Weather
+          </h3>
+          <span className="text-xs font-medium text-amber-600 dark:text-amber-400 bg-amber-100 dark:bg-amber-900/30 px-2 py-1 rounded-full">
+            Kyoto, JP
+          </span>
+        </div>
+
+        <div className="flex items-center gap-6 mt-6 relative z-10">
+          <Sun className="h-16 w-16 text-amber-500 drop-shadow-md" />
           <div>
-            <h2 className="text-4xl font-bold tracking-tighter">14°</h2>
-            <p className="text-muted-foreground text-sm font-medium">Light Rain</p>
-          </div>
-          <div className="space-y-1 text-sm text-muted-foreground text-right">
-            <div className="flex items-center justify-end gap-1"><Thermometer className="w-3.5 h-3.5" /> H: 16° L: 9°</div>
-            <div className="flex items-center justify-end gap-1"><Droplets className="w-3.5 h-3.5" /> 82%</div>
-            <div className="flex items-center justify-end gap-1"><Wind className="w-3.5 h-3.5" /> 12 km/h</div>
+            <div className="text-5xl font-bold tracking-tighter text-slate-900 dark:text-white">
+              72°<span className="text-3xl text-slate-400">F</span>
+            </div>
+            <p className="text-lg font-medium text-slate-600 dark:text-slate-300">Mostly Sunny</p>
           </div>
         </div>
-        
-        <div className="grid grid-cols-4 gap-2 pt-4 border-t border-black/5 dark:border-white/10">
-          <div className="flex flex-col items-center gap-1">
-            <span className="text-xs text-muted-foreground">12 PM</span>
-            <CloudRain className="w-4 h-4 text-blue-500" />
-            <span className="text-sm font-semibold">14°</span>
-          </div>
-          <div className="flex flex-col items-center gap-1">
-            <span className="text-xs text-muted-foreground">3 PM</span>
-            <Cloud className="w-4 h-4 text-slate-400" />
-            <span className="text-sm font-semibold">15°</span>
-          </div>
-          <div className="flex flex-col items-center gap-1">
-            <span className="text-xs text-muted-foreground">6 PM</span>
-            <Sun className="w-4 h-4 text-amber-500" />
-            <span className="text-sm font-semibold">16°</span>
-          </div>
-          <div className="flex flex-col items-center gap-1">
-            <span className="text-xs text-muted-foreground">9 PM</span>
-            <Cloud className="w-4 h-4 text-slate-400" />
-            <span className="text-sm font-semibold">12°</span>
-          </div>
+      </div>
+
+      <div className="grid grid-cols-3 gap-2 mt-8 pt-6 border-t border-slate-200/50 dark:border-zinc-800/50 relative z-10">
+        <div className="flex flex-col items-center">
+          <Wind className="h-5 w-5 text-slate-400 mb-1" />
+          <span className="text-sm font-semibold text-slate-900 dark:text-white">12mph</span>
+          <span className="text-xs text-slate-500">Wind</span>
         </div>
-      </CardContent>
-    </Card>
+        <div className="flex flex-col items-center border-x border-slate-200/50 dark:border-zinc-800/50">
+          <Droplets className="h-5 w-5 text-blue-400 mb-1" />
+          <span className="text-sm font-semibold text-slate-900 dark:text-white">24%</span>
+          <span className="text-xs text-slate-500">Humidity</span>
+        </div>
+        <div className="flex flex-col items-center">
+          <Cloud className="h-5 w-5 text-slate-400 mb-1" />
+          <span className="text-sm font-semibold text-slate-900 dark:text-white">10%</span>
+          <span className="text-xs text-slate-500">Rain</span>
+        </div>
+      </div>
+    </div>
   );
 }
